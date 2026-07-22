@@ -9,11 +9,13 @@
  * - 暂时隐藏：从数组中移除即可
  *
  * content 字段支持简单段落，用空行分隔段落
+ * 读书笔记见 book-essays.ts
  */
 
 import type { Essay } from "@/types/content";
+import { bookEssays } from "@/data/book-essays";
 
-export const essays: Essay[] = [
+const otherEssays: Essay[] = [
   {
     slug: "first-essay",
     title: "关于开始记录这件事",
@@ -50,3 +52,5 @@ export const essays: Essay[] = [
 不必等到一切就绪，先动手，再调整。每一个不完美的尝试，都是下一步的基础。`,
   },
 ];
+
+export const essays: Essay[] = [...bookEssays, ...otherEssays];

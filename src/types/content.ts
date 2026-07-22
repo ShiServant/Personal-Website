@@ -43,6 +43,7 @@ export interface Essay {
   tags: string[];
   featured?: boolean;
   content: string;
+  downloadHref?: string;
 }
 
 export interface MusicItem {

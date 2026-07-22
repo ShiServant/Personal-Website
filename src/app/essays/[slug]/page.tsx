@@ -73,6 +73,17 @@ export default async function EssayPage({ params }: EssayPageProps) {
               ))}
             </ul>
           )}
+          {essay.downloadHref && (
+            <p className="mt-4">
+              <a
+                href={essay.downloadHref}
+                download
+                className="inline-flex items-center gap-1 text-sm text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-background"
+              >
+                下载 Word 原文
+              </a>
+            </p>
+          )}
         </header>
 
         <div className="prose-spacing">
