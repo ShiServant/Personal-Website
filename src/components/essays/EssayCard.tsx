@@ -17,7 +17,7 @@ export function EssayCard({ essay, showTags = true }: EssayCardProps) {
     <article className="group">
       <Link
         href={`/essays/${essay.slug}`}
-        className="block rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+        className="block rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-background"
       >
         <time className="text-xs text-muted">{formattedDate}</time>
         <h3 className="mt-1 text-base font-medium text-foreground transition-colors group-hover:text-accent">

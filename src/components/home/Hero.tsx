@@ -3,15 +3,15 @@ import { Container } from "@/components/layout/Container";
 
 export function Hero() {
   return (
-    <section className="animate-fade-in-up py-16 sm:py-24">
-      <Container>
-        <h1 className="text-4xl font-medium tracking-tight text-foreground sm:text-5xl">
+    <section className="animate-fade-in-up flex min-h-[68vh] items-center py-16 sm:min-h-[72vh] sm:py-24">
+      <Container className="text-center">
+        <h1 className="text-5xl font-semibold tracking-tight text-foreground sm:text-7xl">
           {profile.name}
         </h1>
-        <p className="mt-4 text-lg text-foreground sm:text-xl">
+        <p className="mx-auto mt-5 max-w-md text-lg text-foreground/90 sm:text-xl">
           {profile.tagline}
         </p>
-        <p className="mt-3 max-w-prose text-base leading-relaxed text-muted">
+        <p className="mx-auto mt-4 max-w-prose text-base leading-relaxed text-muted">
           {profile.description}
         </p>
       </Container>

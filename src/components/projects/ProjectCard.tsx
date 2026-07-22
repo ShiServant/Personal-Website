@@ -25,7 +25,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   );
 
   return (
-    <article className="group rounded-lg border border-border bg-surface p-5 transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+    <article className="group rounded-lg border border-border bg-surface p-5 backdrop-blur-sm transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
       {project.image && (
         <div className="relative mb-4 aspect-video overflow-hidden rounded-md bg-accent-light">
           <Image
@@ -43,14 +43,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
             href={project.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             {content}
           </a>
         ) : (
           <Link
             href={project.href}
-            className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             {content}
           </Link>

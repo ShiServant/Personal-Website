@@ -14,7 +14,7 @@ interface MusicCardProps {
 
 export function MusicCard({ item }: MusicCardProps) {
   return (
-    <article className="flex gap-4 rounded-lg border border-border bg-surface p-4 transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:gap-5 sm:p-5">
+    <article className="flex gap-4 rounded-lg border border-border bg-surface p-4 backdrop-blur-sm transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:gap-5 sm:p-5">
       {item.cover ? (
         <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-md bg-accent-light sm:h-24 sm:w-24">
           <Image

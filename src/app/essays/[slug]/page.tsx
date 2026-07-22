@@ -49,7 +49,7 @@ export default async function EssayPage({ params }: EssayPageProps) {
       <nav className="mb-8">
         <Link
           href="/essays"
-          className="text-sm text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          className="text-sm text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-background"
         >
           ← 返回随笔列表
         </Link>

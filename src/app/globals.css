@@ -1,17 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #f8fbff;
-  --color-surface: #ffffff;
-  --color-accent-light: #ddeeff;
-  --color-accent: #7eb6e8;
-  --color-foreground: #243447;
-  --color-muted: #718096;
-  --color-border: #d9e5f0;
+  --color-background: #081018;
+  --color-surface: rgb(255 255 255 / 0.05);
+  --color-accent-light: rgb(110 200 232 / 0.14);
+  --color-accent: #6ec8e8;
+  --color-foreground: #ffffff;
+  --color-muted: #8ba4b8;
+  --color-border: rgb(255 255 255 / 0.12);
+  --color-sidebar: #000000;
 
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei",
-    sans-serif;
+  --font-sans: var(--font-hand), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -26,11 +25,25 @@
   }
 
   body {
-    @apply bg-background font-sans text-foreground antialiased;
+    @apply font-sans text-foreground antialiased;
+    background-color: var(--color-background);
+    background-image:
+      radial-gradient(
+        ellipse 90% 60% at 50% 35%,
+        rgb(46 120 160 / 0.38) 0%,
+        transparent 65%
+      ),
+      linear-gradient(
+        180deg,
+        #081018 0%,
+        #0f2847 48%,
+        #12465a 100%
+      );
+    background-attachment: fixed;
   }
 
   ::selection {
-    background-color: var(--color-accent-light);
+    background-color: rgb(110 200 232 / 0.35);
     color: var(--color-foreground);
   }
 }
