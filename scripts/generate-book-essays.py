@@ -8,19 +8,19 @@ with open(ROOT / "extracted_books.json", encoding="utf-8") as f:
 
 meta = {
     "cardboard-boxer": {
-        "date": "2026-07-20",
+        "date": "2023-11-20",
         "summary": "关于《废纸板拳击手》的观影感受，解读上帝、Pope 与陪伴的主题。",
         "tags": ["电影", "读书笔记"],
         "download": "/books/cardboard-boxer.docx",
     },
     "sheng-si-pi-lao": {
-        "date": "2026-07-21",
+        "date": "2024-05-03",
         "summary": "关于莫言《生死疲劳》的阅读笔记，谈幽默、时间与六道轮回。",
         "tags": ["文学", "读书笔记"],
         "download": "/books/sheng-si-pi-lao.docx",
     },
     "zhi-huan-wang": {
-        "date": "2026-07-22",
+        "date": "2023-11-12",
         "summary": "关于《指环王》三部曲的观影感受，谈凡人的英雄主义。",
         "tags": ["电影", "读书笔记"],
         "download": "/books/zhi-huan-wang.docx",

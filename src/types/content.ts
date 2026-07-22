@@ -46,6 +46,14 @@ export interface Essay {
   downloadHref?: string;
 }
 
+export interface Composition {
+  id: string;
+  title: string;
+  description: string;
+  audioSrc: string;
+  year?: number;
+}
+
 export interface MusicItem {
   id: string;
   title: string;

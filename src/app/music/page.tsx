@@ -1,18 +1,24 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
+import { CompositionCard } from "@/components/music/CompositionCard";
 import { MusicCard } from "@/components/music/MusicCard";
+import { compositions } from "@/data/compositions";
 import { musicItems } from "@/data/music";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
   title: "音乐",
-  description: "喜欢的歌曲、专辑与歌单。",
+  description: "原创作曲与喜欢的音乐。",
 };
 
 export default function MusicPage() {
-  if (musicItems.length === 0) {
+  const hasCompositions = compositions.length > 0;
+  const hasFavorites = musicItems.length > 0;
+
+  if (!hasCompositions && !hasFavorites) {
     return (
       <Container className="py-16">
-        <p className="text-muted">暂无音乐推荐。</p>
+        <p className="text-muted">暂无音乐内容。</p>
       </Container>
     );
   }
@@ -24,17 +30,38 @@ export default function MusicPage() {
           音乐
         </h1>
         <p className="mt-3 max-w-prose text-sm leading-relaxed text-muted sm:text-base">
-          一些陪伴我阅读、写作和独处的音乐。
+          一些原创作曲，以及陪伴我阅读、写作和独处的音乐。
         </p>
       </header>
 
-      <ul className="flex flex-col gap-4">
-        {musicItems.map((item) => (
-          <li key={item.id}>
-            <MusicCard item={item} />
-          </li>
-        ))}
-      </ul>
+      {hasCompositions && (
+        <section className="mb-14">
+          <SectionHeading
+            title="我的作曲"
+            description="点击播放按钮即可在线试听，不会自动播放。"
+          />
+          <ul className="flex flex-col gap-4">
+            {compositions.map((item) => (
+              <li key={item.id}>
+                <CompositionCard item={item} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {hasFavorites && (
+        <section>
+          <SectionHeading title="喜欢的音乐" />
+          <ul className="flex flex-col gap-4">
+            {musicItems.map((item) => (
+              <li key={item.id}>
+                <MusicCard item={item} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </Container>
   );
 }

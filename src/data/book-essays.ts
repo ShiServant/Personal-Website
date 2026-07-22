@@ -10,7 +10,7 @@ export const bookEssays: Essay[] = [
   {
     slug: "cardboard-boxer",
     title: "废纸板拳击手",
-    date: "2026-07-20",
+    date: "2023-11-20",
     summary: "关于《废纸板拳击手》的观影感受，解读上帝、Pope 与陪伴的主题。",
     tags: ["电影", "读书笔记"],
     featured: true,
@@ -30,7 +30,7 @@ export const bookEssays: Essay[] = [
   {
     slug: "sheng-si-pi-lao",
     title: "生死疲劳",
-    date: "2026-07-21",
+    date: "2024-05-03",
     summary: "关于莫言《生死疲劳》的阅读笔记，谈幽默、时间与六道轮回。",
     tags: ["文学", "读书笔记"],
     featured: true,
@@ -100,7 +100,7 @@ export const bookEssays: Essay[] = [
   {
     slug: "zhi-huan-wang",
     title: "指环王",
-    date: "2026-07-22",
+    date: "2023-11-12",
     summary: "关于《指环王》三部曲的观影感受，谈凡人的英雄主义。",
     tags: ["电影", "读书笔记"],
     featured: true,
