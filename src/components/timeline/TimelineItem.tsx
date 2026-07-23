@@ -1,13 +1,24 @@
 import Image from "next/image";
 import type { TimelineEntry } from "@/types/content";
 import { ExternalLink } from "@/components/ui/ExternalLink";
+import type { Locale } from "@/i18n/config";
+import { t } from "@/i18n/localized";
 
 interface TimelineItemProps {
   entry: TimelineEntry;
   isLast: boolean;
+  locale: Locale;
+  learnMoreLabel: string;
+  newWindowLabel: string;
 }
 
-export function TimelineItem({ entry, isLast }: TimelineItemProps) {
+export function TimelineItem({
+  entry,
+  isLast,
+  locale,
+  learnMoreLabel,
+  newWindowLabel,
+}: TimelineItemProps) {
   return (
     <li className="relative flex gap-5 pb-10 sm:gap-8">
       <div className="flex flex-col items-center">
@@ -17,19 +28,23 @@ export function TimelineItem({ entry, isLast }: TimelineItemProps) {
 
       <div className="min-w-0 flex-1 pb-2">
         <time className="text-sm font-medium text-accent">{entry.date}</time>
-        <h2 className="mt-1 text-lg font-medium text-foreground">{entry.title}</h2>
+        <h2 className="mt-1 text-lg font-medium text-foreground">
+          {t(entry.title, locale)}
+        </h2>
         {entry.location && (
-          <p className="mt-0.5 text-xs text-muted">{entry.location}</p>
+          <p className="mt-0.5 text-xs text-muted">
+            {t(entry.location, locale)}
+          </p>
         )}
         <p className="mt-2 text-sm leading-relaxed text-muted">
-          {entry.description}
+          {t(entry.description, locale)}
         </p>
 
         {entry.image && (
           <div className="relative mt-4 aspect-video max-w-md overflow-hidden rounded-lg bg-accent-light">
             <Image
               src={entry.image}
-              alt={entry.title}
+              alt={t(entry.title, locale)}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 448px"
@@ -39,7 +54,9 @@ export function TimelineItem({ entry, isLast }: TimelineItemProps) {
 
         {entry.href && (
           <p className="mt-3">
-            <ExternalLink href={entry.href}>了解更多</ExternalLink>
+            <ExternalLink href={entry.href} newWindowLabel={newWindowLabel}>
+              {learnMoreLabel}
+            </ExternalLink>
           </p>
         )}
       </div>

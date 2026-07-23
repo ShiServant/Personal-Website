@@ -1,25 +1,32 @@
 import Image from "next/image";
 import type { MusicItem } from "@/types/content";
 import { ExternalLink } from "@/components/ui/ExternalLink";
-
-const typeLabels: Record<MusicItem["type"], string> = {
-  song: "歌曲",
-  album: "专辑",
-  playlist: "歌单",
-};
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionary";
+import { t } from "@/i18n/localized";
 
 interface MusicCardProps {
   item: MusicItem;
+  locale: Locale;
+  dictionary: Dictionary;
 }
 
-export function MusicCard({ item }: MusicCardProps) {
+export function MusicCard({ item, locale, dictionary }: MusicCardProps) {
+  const typeLabels: Record<MusicItem["type"], string> = {
+    song: dictionary.musicItem.song,
+    album: dictionary.musicItem.album,
+    playlist: dictionary.musicItem.playlist,
+  };
+
+  const title = t(item.title, locale);
+
   return (
     <article className="flex gap-4 rounded-lg border border-border bg-surface p-4 backdrop-blur-sm transition-transform duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:gap-5 sm:p-5">
       {item.cover ? (
         <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-md bg-accent-light sm:h-24 sm:w-24">
           <Image
             src={item.cover}
-            alt={`${item.title} 封面`}
+            alt={`${title} ${dictionary.musicItem.coverAlt}`}
             fill
             className="object-cover"
             sizes="96px"
@@ -52,7 +59,7 @@ export function MusicCard({ item }: MusicCardProps) {
 
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-          <h2 className="text-base font-medium text-foreground">{item.title}</h2>
+          <h2 className="text-base font-medium text-foreground">{title}</h2>
           <span className="rounded-md bg-accent-light px-2 py-0.5 text-xs text-muted">
             {typeLabels[item.type]}
           </span>
@@ -60,13 +67,20 @@ export function MusicCard({ item }: MusicCardProps) {
             <span className="text-xs text-muted">{item.year}</span>
           )}
         </div>
-        <p className="mt-0.5 text-sm text-muted">{item.artist}</p>
+        <p className="mt-0.5 text-sm text-muted">{t(item.artist, locale)}</p>
         {item.note && (
-          <p className="mt-2 text-sm leading-relaxed text-muted">{item.note}</p>
+          <p className="mt-2 text-sm leading-relaxed text-muted">
+            {t(item.note, locale)}
+          </p>
         )}
         {item.href && (
           <p className="mt-3">
-            <ExternalLink href={item.href}>前往收听</ExternalLink>
+            <ExternalLink
+              href={item.href}
+              newWindowLabel={dictionary.externalLink.newWindow}
+            >
+              {dictionary.musicItem.listen}
+            </ExternalLink>
           </p>
         )}
       </div>

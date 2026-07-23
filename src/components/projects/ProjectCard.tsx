@@ -1,25 +1,38 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/types/content";
+import type { Locale } from "@/i18n/config";
+import { t } from "@/i18n/localized";
+
 interface ProjectCardProps {
   project: Project;
+  locale: Locale;
+  viewDetailsLabel: string;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({
+  project,
+  locale,
+  viewDetailsLabel,
+}: ProjectCardProps) {
   const content = (
     <>
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <h3 className="text-base font-medium text-foreground">{project.title}</h3>
+        <h3 className="text-base font-medium text-foreground">
+          {t(project.title, locale)}
+        </h3>
         <span className="text-xs text-muted">{project.year}</span>
         <span className="rounded-md bg-accent-light px-2 py-0.5 text-xs text-muted">
-          {project.category}
+          {t(project.category, locale)}
         </span>
       </div>
       <p className="mt-2 text-sm leading-relaxed text-muted">
-        {project.description}
+        {t(project.description, locale)}
       </p>
       {project.href && (
-        <span className="mt-3 inline-block text-sm text-accent">查看详情 →</span>
+        <span className="mt-3 inline-block text-sm text-accent">
+          {viewDetailsLabel}
+        </span>
       )}
     </>
   );
@@ -30,7 +43,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="relative mb-4 aspect-video overflow-hidden rounded-md bg-accent-light">
           <Image
             src={project.image}
-            alt={project.title}
+            alt={t(project.title, locale)}
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 672px"

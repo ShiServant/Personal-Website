@@ -2,12 +2,21 @@
 
 import { useId } from "react";
 import type { Composition } from "@/types/content";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionary";
+import { t } from "@/i18n/localized";
 
 interface CompositionCardProps {
   item: Composition;
+  locale: Locale;
+  dictionary: Dictionary;
 }
 
-export function CompositionCard({ item }: CompositionCardProps) {
+export function CompositionCard({
+  item,
+  locale,
+  dictionary,
+}: CompositionCardProps) {
   const audioId = useId();
 
   return (
@@ -19,11 +28,11 @@ export function CompositionCard({ item }: CompositionCardProps) {
             <span className="text-xs text-muted">{item.year}</span>
           )}
           <span className="rounded-md bg-accent-light px-2 py-0.5 text-xs text-muted">
-            原创
+            {dictionary.composition.original}
           </span>
         </div>
         <p className="mt-3 text-sm leading-relaxed text-muted">
-          {item.description}
+          {t(item.description, locale)}
         </p>
       </div>
 
@@ -32,10 +41,10 @@ export function CompositionCard({ item }: CompositionCardProps) {
         controls
         preload="metadata"
         className="h-10 w-full accent-accent"
-        aria-label={`播放 ${item.title}`}
+        aria-label={`${dictionary.composition.playAria} ${item.title}`}
       >
         <source src={item.audioSrc} type="audio/mpeg" />
-        你的浏览器不支持音频播放。
+        {dictionary.composition.unsupported}
       </audio>
     </article>
   );

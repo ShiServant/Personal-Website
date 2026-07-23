@@ -1,35 +1,50 @@
 "use client";
 
 import Link from "next/link";
-import { navItems } from "@/data/navigation";
+import type { Locale } from "@/i18n/config";
+import {
+  localizedHref,
+  navPaths,
+  type Dictionary,
+} from "@/i18n/dictionary";
 
 interface MobileNavProps {
   id: string;
   open: boolean;
   pathname: string;
+  locale: Locale;
+  dictionary: Dictionary;
   onNavigate: () => void;
 }
 
-export function MobileNav({ id, open, pathname, onNavigate }: MobileNavProps) {
+export function MobileNav({
+  id,
+  open,
+  pathname,
+  locale,
+  dictionary,
+  onNavigate,
+}: MobileNavProps) {
   if (!open) return null;
 
   return (
     <nav
       id={id}
       className="border-t border-border bg-sidebar px-5 py-3 md:hidden"
-      aria-label="移动端导航"
+      aria-label={dictionary.nav.mobileNav}
     >
       <ul className="flex flex-col gap-1">
-        {navItems.map((item) => {
+        {navPaths.map((item) => {
+          const href = localizedHref(locale, item.href);
           const isActive =
             item.href === "/"
-              ? pathname === "/"
-              : pathname.startsWith(item.href);
+              ? pathname === href
+              : pathname.startsWith(href);
 
           return (
             <li key={item.href}>
               <Link
-                href={item.href}
+                href={href}
                 aria-current={isActive ? "page" : undefined}
                 onClick={onNavigate}
                 className={`block rounded-md px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-sidebar ${
@@ -38,7 +53,7 @@ export function MobileNav({ id, open, pathname, onNavigate }: MobileNavProps) {
                     : "text-muted hover:bg-accent-light/60 hover:text-foreground"
                 }`}
               >
-                {item.label}
+                {dictionary.nav[item.key]}
               </Link>
             </li>
           );

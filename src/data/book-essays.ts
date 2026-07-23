@@ -1,7 +1,7 @@
 /**
  * 读书笔记（从 Word 文档导入）
  *
- * 修改方式：编辑下方数组，或替换 public/books/ 中的 docx 文件
+ * 每个文案字段包含 zh / en。可替换 public/books/ 中的 docx。
  */
 
 import type { Essay } from "@/types/content";
@@ -9,13 +9,17 @@ import type { Essay } from "@/types/content";
 export const bookEssays: Essay[] = [
   {
     slug: "cardboard-boxer",
-    title: "废纸板拳击手",
+    title: { zh: "废纸板拳击手", en: "Cardboard Boxer" },
     date: "2023-11-20",
-    summary: "关于《废纸板拳击手》的观影感受，解读上帝、Pope 与陪伴的主题。",
-    tags: ["电影", "读书笔记"],
+    summary: { zh: "关于《废纸板拳击手》的观影感受，解读上帝、Pope 与陪伴的主题。", en: "Notes on Cardboard Boxer — God, Pope, and companionship." },
+    tags: [
+      { zh: "电影", en: "Film" },
+      { zh: "读书笔记", en: "Reading notes" },
+    ],
     featured: true,
     downloadHref: "/books/cardboard-boxer.docx",
-    content: `我是通过B站刷视频而了解到这部影片的。起初，我更多是因为想让自己去拼场电影更多的口味，从而去观看这部文艺类的影片。然而其所带给我心灵上的震撼使我对其刮目相看。《废纸板拳击手》这一部小众文艺片，没有错综复杂的叙事结构、没有叹为观止的特效手法、甚至连演员也非重量级明星。而正是这样一部表面上极其廉价的电影，给予人的震撼确实直触心灵的。
+    content: {
+      zh: `我是通过B站刷视频而了解到这部影片的。起初，我更多是因为想让自己去拼场电影更多的口味，从而去观看这部文艺类的影片。然而其所带给我心灵上的震撼使我对其刮目相看。《废纸板拳击手》这一部小众文艺片，没有错综复杂的叙事结构、没有叹为观止的特效手法、甚至连演员也非重量级明星。而正是这样一部表面上极其廉价的电影，给予人的震撼确实直触心灵的。
 
 影片的大致内容我这里就不剧透了，但是以下内容会包括影片中的细节或情节发展（包含剧透）！！我想在这里留下我对影片中导演几处设计的理解。
 
@@ -26,16 +30,32 @@ export const bookEssays: Essay[] = [
 在这就是整部电影结尾小女孩儿的出现。在我看来，小女孩儿这位角色的戏剧意义远大于其在剧情走向与逻辑上的意义，并且至少导演也并没有用一种十分突兀的方式来将小女孩儿这一角色从日记中引入现实。在全片结尾，小女孩儿的出现象征着影片在最后走向高潮，而两人相拥时的场景设计也极具巧思。电影在末尾终于褪去了灰暗的色调，背景时间转为一个明朗的下午；Willie两支绑着白色绷带的手交叉放在胸前，伫立在路口——这是第一次Willie身上有着纯白颜色的物品出现，也象征着Willie最终在钱财的考研与Pope的训诫之下醒悟过来，褪去了思想中的物质，已然成为了小女孩儿所需要的天使。最终小女孩儿出现并拥抱了Willie，此时Willie宛如天使一般拥抱了小女孩儿；同时，小女孩儿作为Willie的天使也终于下凡人间，为Willie洗去了尘封已久的孤独。
 
 全篇终。尽管这是一部小众的影片，但其所带来的直触心灵的震撼远大于许多好莱坞大片斥百万巨资所成之作。影片向人们展示了人类最大的恐惧——孤独；同时也揭露了埋葬在世间各处的“陪伴补给站”。`,
+      en: `I first learned about this film while scrolling videos on Bilibili. At first I watched it mostly to broaden the kinds of movies I would sit through. The emotional impact surprised me. Cardboard Boxer is a small art-house film — no tangled plot machinery, no spectacular effects, no A-list cast. That seemingly inexpensive surface is exactly what makes its honesty cut so deep.
+
+I will not retell the whole story here, but the notes below include plot details (spoilers). These are a few of the director's choices that stayed with me.
+
+First, the image of “God” and the appearance of the missionary. The Bible the missionary gives Willie and the little girl’s diary form a sharp contrast across the film. Both gestures hope Willie will believe in a kind of God: the missionary wants him to find God through scripture; the girl wants Willie to become her God. The shared word produces opposite effects. For the missionary, God is a savior — a companion for a peaceful death. For Willie, God is only a spiritual symbol: God cannot feed or house him, cannot sit with him in loneliness, and the Bible offers little real support. Traditional “God” becomes almost ironic in Willie’s eyes — hollow when you are homeless. The “God” in the girl’s diary is different: a guardian and companion, which is what Willie needs most. In practice the film splits that figure into two parts. The girl and her diary become companionship; Pope becomes protection. That reading matches the film’s actions: Willie’s grief when the diary is lost, and Pope’s repeated, selfless help for people with nowhere to go.
+
+Second, Pope’s past. He is the protector of the film, yet we never learn his history. He might be simply kind, someone who escaped homelessness, or a community worker. I prefer the reading that he once lived on the street himself. In the film he is only a taxi driver — not someone with endless money or free time. Perhaps out of solidarity with people like him, he holds a fragile community together and asks others without homes to protect one another. That design serves a dramatic purpose: community is everywhere in human life, even if Willie does not see it at first.
+
+Finally, the girl’s appearance at the end. For me her dramatic meaning outweighs strict plot logic, and the film introduces her from diary into reality without feeling forced. Her arrival marks the emotional peak; the embrace is carefully staged. The gray palette finally softens into a clear afternoon. Willie’s hands, wrapped in white bandages, cross over his chest at the corner — the first pure white on his body, a sign that after the test of money and Pope’s warning he sheds a material fixation and becomes the kind of angel the girl needed. When she appears and holds him, he holds her like an angel in return; she, as his angel, finally steps into the world and washes away a loneliness that had been sealed for a long time.
+
+End. For a small film, the impact is greater than many expensive studio pictures. It shows the deepest human fear — loneliness — and also the quiet “stations of companionship” buried throughout the world.`,
+    },
   },
   {
     slug: "sheng-si-pi-lao",
-    title: "生死疲劳",
+    title: { zh: "生死疲劳", en: "Life and Death Are Wearing Me Out" },
     date: "2024-05-03",
-    summary: "关于莫言《生死疲劳》的阅读笔记，谈幽默、时间与六道轮回。",
-    tags: ["文学", "读书笔记"],
+    summary: { zh: "关于莫言《生死疲劳》的阅读笔记，谈幽默、时间与六道轮回。", en: "Notes on Mo Yan’s novel — humor, time, and reincarnation." },
+    tags: [
+      { zh: "文学", en: "Literature" },
+      { zh: "读书笔记", en: "Reading notes" },
+    ],
     featured: true,
     downloadHref: "/books/sheng-si-pi-lao.docx",
-    content: `生死疲劳
+    content: {
+      zh: `生死疲劳
 
 最先抢到大雁的人，心中大概会狂喜，但他手中的大雁随即被无数只手扯住。雁毛脱落，绒毛飞起，雁翅被撕裂了，雁腿落到一个人手里，雁头连着一段脖子被一个人撕去，并被高高举到头顶，滴沥着鲜血。许多人按着前边人的肩膀和头顶，像猎犬一样往上蹿跳着。有的人被踩倒了，有的人被挤扁了，有的人的肚子被踩破了，有的人尖声哭叫着，娘啊，娘啊……哎哟，救命啊……集市上的人浓缩成几十个黑压压的团体，翻滚不止，叫苦连天，与喇叭的啸叫混杂在一起，哎哟我的头啊……这场混乱，变成了混战，变成了武斗。
 
@@ -96,21 +116,55 @@ export const bookEssays: Essay[] = [
 对酒当歌，人生几何？
 
 ——曹操`,
+      en: `Life and Death Are Wearing Me Out
+
+For Mo Yan’s Life and Death Are Wearing Me Out, I want to talk about two things: humor and time.
+
+I do not claim much literary critical skill — my school essays were often torn apart by teachers — so when I read, I care less about fine technique than about what those choices make a reader feel. Technique exists to serve the book’s larger subject.
+
+“People in the 1950s were relatively pure; in the 1960s, fanatical; in the 1970s, fearful; in the 1980s, calculating; in the 1990s, deeply corrupted.”
+
+The first shock the novel gave me was its sense of time. Through six reincarnations Mo Yan spans fifty of modern China’s fastest-changing years: from mud houses to brick, carts to cars, from village innocence to worldly cunning; from communal land to private ownership and the return of personal ambition; from shifting ideals in people’s minds. Fitting that scale into one novel should be nearly impossible. Mo Yan’s move is to cast five animal “lives” — donkey, ox, pig, dog, monkey — as reincarnations of landlord Ximen Nao. The animals keep instinct and also leftover human wit and temperament. Born into the human world yet set apart from it, the protagonist can read human feeling while remaining, bodily, an outsider — a camera recording fifty years of change. From that angle Mo Yan can reveal desire behind closed doors: Blue Liberation’s affair with Pang Chunmiao; Ximen Jinlong’s dealings with Pang Kangmei. As Ximen Nao the man, those scenes would be hard to justify; as animals, they become possible. That imprint of an era on every character is one of the book’s lasting powers.
+
+The second shock is Mo Yan’s humor — the ability to stay funny inside pain and pressure. Unlike Yu Hua, who sometimes keeps humor for the writer and pain for the reader, Mo Yan sends you on a roller coaster between the two. Under that humor is a kind of release: after living through too much, you can still laugh. Across reincarnations Ximen Nao’s rage softens; animal nature takes more space; memory grows quieter. Mo Yan once wrote: the dead cannot live again, and the living must keep living — crying or laughing, it is still living. In Ximen Nao we see a calm toward life’s rises and falls, and a refusal to cling too hard to any single moment. Humor is that attitude made audible: laughing hardest at the hardest times.
+
+This note could end here, but while resting I noticed a reading of the Great Arbiter of Fate from classical poetry: death continues life, and life begins death — a cycle without end. Mo Yan’s view of life and death in this novel sits in that Chinese tradition of treating both with an even mind. David Eagleman’s idea of three deaths — biological, legal, social — also echoes here: social death is being forgotten. Rituals that remember ancestors keep people from vanishing completely; memory itself becomes a kind of reincarnation. Books remember writers; forests remember animals; families remember people.
+
+Wherever the old wind blew, for better or worse — guide the next wind, and keep going with it.
+
+The dead cannot live again, and the living must keep living. Crying or laughing, it is still living.
+— Mo Yan
+
+“Wine and song — how long is a life?”
+— Cao Cao`,
+    },
   },
   {
     slug: "zhi-huan-wang",
-    title: "指环王",
+    title: { zh: "指环王", en: "The Lord of the Rings" },
     date: "2023-11-12",
-    summary: "关于《指环王》三部曲的观影感受，谈凡人的英雄主义。",
-    tags: ["电影", "读书笔记"],
+    summary: { zh: "关于《指环王》三部曲的观影感受，谈凡人的英雄主义。", en: "Notes on the LOTR trilogy — the heroism of ordinary people." },
+    tags: [
+      { zh: "电影", en: "Film" },
+      { zh: "读书笔记", en: "Reading notes" },
+    ],
     featured: true,
     downloadHref: "/books/zhi-huan-wang.docx",
-    content: `出于一时的闲杂无聊之情，我在豆瓣高分榜单中漫无目的地寻找心仪的电影时，我偶然看到了《指环王》。这部影片留给我的影响仅仅是在其续集五军之战中，最后几派军队集结的壮观画面；再者就是其好评如潮的口碑。而令我真正产生兴趣的是，一部凭借建立中土世界观来展开叙述的奇幻片、战争片、剧情片，为何在豆瓣评分前百，这一被文艺片统治的领域中，获得一席之地。出于种种好奇，我在两三周内的闲杂时间中看完了《指环王》本部三部曲；而这几部电影也向我展示了其高分的名副其实。
+    content: {
+      zh: `出于一时的闲杂无聊之情，我在豆瓣高分榜单中漫无目的地寻找心仪的电影时，我偶然看到了《指环王》。这部影片留给我的影响仅仅是在其续集五军之战中，最后几派军队集结的壮观画面；再者就是其好评如潮的口碑。而令我真正产生兴趣的是，一部凭借建立中土世界观来展开叙述的奇幻片、战争片、剧情片，为何在豆瓣评分前百，这一被文艺片统治的领域中，获得一席之地。出于种种好奇，我在两三周内的闲杂时间中看完了《指环王》本部三部曲；而这几部电影也向我展示了其高分的名副其实。
 
 电影所描绘的是Frodo Baggins意外得到魔戒，并经历重重险阻暗中前往敌人的腹地：Mordor摧毁魔戒，从而消灭黑暗之主索隆的故事。从这一概述看来，这无疑有些西游记的味道。两者相同之处在于：西游记与魔戒中的主人公都出身平凡，是一位毫不起眼的小人物，但又被“天降大任”，最终破处千难万阻完成自己的使命。而不同的是，西游记中的主人公唐僧有着四位得力的帮手，白龙马、猴哥、八戒、沙僧；而尽管在魔戒中有护戒远征队有9人，但最终携带戒指前往Mordor的仅仅只有Sam和Frodo二人。从而导致了两个故事核心意义上的不同。
 
 在三部电影长达十个小时的时长中，指环王的故事为每一个角色都设置了一道或者数十道考验。全篇中，Aragon面临着爱情的考验；Sam、小地精、Frodo面临着魔戒的考验；另外两位霍比特人面临着战争与勇气的考验……而指环王将每位角色从第一部面对考验开始，到第三部随着魔戒慢慢接近Mordor，角色慢慢在考验中做出抉择与蜕变。而其中所创造戏剧张力的是，并不是所有人物都能够通过考验；他们或许会畏惧、会做出错误的选择。这一点尤其体现在主角Frodo身上。在最后一部前往Mordor的天梯上，小地精通过离间计使Frodo不再相信跟自己出生入死的兄弟Sam：而这一幕则象征着Frodo在命运对于其在友情与信任上的考验失败了。然而，指环王所具有的魅力在于：尽管人物并没有通过考验——就像很多人在现实生活中所面临的一样——他们还是在未来的某些时刻认识到了自己的错误，并重新开始自己的旅程。整部电影中，我们见证了4位从安逸的世外桃源（夏尔国）出发的霍比特人，在魔戒之旅中所发生的蜕变与成长。一开始，他们弱小的身躯使他们在战斗中往往不能发挥出自己的作用。然而，在第二部中，皮平与梅里通过自己的友善与说辞说服树人加入了自己的队伍，一举攻破了萨鲁曼的老巢；在第三部面临大蜘蛛时，Sam毫无畏惧地拔刀相向，依靠自己的智慧与勇气逼退了大蜘蛛，再孤身前往Mordor中的哨塔救下了Frodo；Frodo也在最后克服了魔戒的考验，将小地精推下了悬崖。而最终在胜利之时，全Gondor的人向4位霍比特人鞠躬下跪之时，4位也蜕变为了精神上、意志上宏伟的巨人
 
 指环王描写的并不是某一位英雄，这与西方所盛行的英雄主义大相径庭。而恰恰相反的是，指环王完整的描写了一位英雄是怎样诞生的？不是通过某一天所获得的超能力；也不是通过天赋异禀；更不是通过天赐……而是一步一步从一位普通人，经历了普通人所不必经历的苦难，最终达成蜕变。指环王吸引人的或许不是那些宏伟的战争与精灵的美貌，致使其在影史上立处不败之地的根本原因，是其所诉说的，无不令人动容的：凡人的英雄主义。`,
+      en: `Out of idle boredom I was browsing Douban’s high-score list when I found The Lord of the Rings. Until then I mostly remembered the massed armies in a later war film and the overwhelming praise. What really hooked me was a question: how does a fantasy-war-drama built on Middle-earth earn a place among Douban’s top hundred, a list usually ruled by art films? Over two or three weeks I finished the original trilogy, and the scores proved deserved.
+
+The story follows Frodo Baggins as he inherits the Ring and, through danger, carries it toward Mordor to destroy it and end Sauron’s power. The outline echoes Journey to the West: ordinary heroes given a vast task. The difference is that Tang Sanzang travels with four companions, while the Fellowship of nine thins until only Sam and Frodo walk into Mordor — and that changes what the story is about.
+
+Across roughly ten hours of film, every character faces one or many tests: Aragorn and love; Sam, Gollum, and Frodo and the Ring; Merry and Pippin and war and courage. As the Ring nears Mordor, choices harden into transformation. Not everyone passes. On the stairs to Mordor, Gollum’s lies make Frodo distrust Sam — a failure of friendship and faith. The trilogy’s grace is that failed tests are not the end: people recognize mistakes later and begin again, as we do in ordinary life. We watch four hobbits leave the Shire’s ease and grow. At first their small bodies barely matter in battle; later Merry and Pippin sway the Ents against Saruman; Sam faces the spider with steel and wit and rescues Frodo; Frodo finally resists the Ring and sends Gollum into the fire. When Gondor bows to the four, they have become giants in spirit.
+
+The Lord of the Rings is not a portrait of one ready-made hero in the Western mold. It shows how a hero is made — not by sudden powers, gift, or destiny alone, but step by step from an ordinary person through suffering most people never meet. What keeps the films lasting is not only war spectacle or elven beauty, but a moving claim: the heroism of ordinary people.`,
+    },
   },
 ];
